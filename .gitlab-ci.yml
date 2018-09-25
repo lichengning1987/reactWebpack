@@ -13,3 +13,5 @@ job1:
         - cd public
         - npm i
         - npm run build
+    environment:
+        name: production
