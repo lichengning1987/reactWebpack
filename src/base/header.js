@@ -23,7 +23,7 @@ export default class Header extends Component {
       }}>
         <div className="headerbar-logo">
           <div className="headerbar-title">
-            react test
+            react testdemo
           </div>
         </div>
       </div>
