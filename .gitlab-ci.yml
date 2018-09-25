@@ -9,6 +9,7 @@ job1:
     tags:
         - new testrun
     script:
+          mkdir public
         - cd public
         - npm i
         - npm run build
