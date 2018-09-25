@@ -7,7 +7,7 @@ job1:
     #     CI_DEBUG_TRACE: "true"
     stage: build
     tags:
-        - runner
+        - new testrun
     script:
         - cd public
         - npm i
