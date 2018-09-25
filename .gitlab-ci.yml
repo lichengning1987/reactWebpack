@@ -8,8 +8,6 @@ job1:
     stage: build
     tags:
         - 新建 runner 的标签
-    only:
-        - develop
     script:
         - cd public
         - npm i
