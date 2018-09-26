@@ -9,6 +9,8 @@ job1:
     tags:
         - new testrun
     script:
+        - mkdir public
+        - cd public
         - echo "test"
     environment:
         name: production
