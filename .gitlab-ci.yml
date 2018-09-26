@@ -9,6 +9,7 @@ job1:
     tags:
         - new testrun
     script:
+        - pwd
         - mkdir public
         - cd public
         - echo "test"
