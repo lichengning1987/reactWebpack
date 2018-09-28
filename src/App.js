@@ -21,7 +21,7 @@ const store = createStore(rootReducer, applyMiddleware(...middleware));
 console.log(store.getState(), 99999888888);
 
 
-import Wraps from './pages/wraps'
+import AddressBook from './pages/AddressBook'
 
 const Home = () => (
   <div>
@@ -76,7 +76,7 @@ const BasicExample = () => (
     <HashRouter>
       <App>
         <Route exact path="/" component={Home} />
-        <Route path="/about" component={Wraps} />
+        <Route path="/addressBook" component={AddressBook} />
         <Route path="/topics" component={Topics} />
 
       </App>

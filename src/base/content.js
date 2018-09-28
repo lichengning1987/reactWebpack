@@ -77,7 +77,7 @@ export default class Content extends Component {
     const { tabList } = this.props
     console.log(this.props, 99)
     return (
-      <div id="contentBox">
+      <div id="tabMenuHeader">
         <div className="boxcon">
           <Tabs
             hideAdd

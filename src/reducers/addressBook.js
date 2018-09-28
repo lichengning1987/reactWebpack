@@ -16,4 +16,5 @@ const changeColorStyle = handleActions({
 }, initialState)
 
 
-export { changeColorStyle as default }
+//export { changeColorStyle as default }
+export default changeColorStyle

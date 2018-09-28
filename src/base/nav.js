@@ -62,7 +62,7 @@ export default class NavMenu extends Component {
           inlineCollapsed={this.state.collapsed}
           selectedKeys={selectedKeys}
         >
-          <Menu.Item key="about" name={`通讯录`}>
+          <Menu.Item key="addressBook" name={`通讯录`}>
             <Icon type="pie-chart" />
             <span>通讯录</span>
           </Menu.Item>
