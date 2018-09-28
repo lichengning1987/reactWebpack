@@ -94,7 +94,6 @@ export default class AddressBook extends Component {
     return (
       <div className="pages-content">
         <div className="boxcon">
-          <h3>换肤</h3>
           <button onClick={this.changeColor}>更换皮肤颜色</button>
         </div>
         <Table columns={columns} dataSource={data} />
