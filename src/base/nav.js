@@ -44,9 +44,7 @@ export default class NavMenu extends Component {
 
   render () {
 
-    const selectedKeys = [this.state.currentKey.replace('/', '')]
-    //this.props.location.pathname
-    console.log(selectedKeys, this.state.currentKey, 4433);
+    const selectedKeys = [this.props.location.pathname.replace('/', "")]
 
     return (
       < div className="navbar-menu" >

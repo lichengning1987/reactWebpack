@@ -24,13 +24,13 @@ export default class App extends Component {
 
   render () {
     console.log(this.props, 4444);
-    const { children } = this.props;
+    const { children, location } = this.props;
     return (
       <div id="container">
         <Header />
         <div className="boxed">
           <div className="leftnav">
-            <NavMenu></NavMenu>
+            <NavMenu location={location}></NavMenu>
           </div>
           <div className="content-wrap">
             <div className="page-container">

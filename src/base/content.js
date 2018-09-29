@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Menu, Dropdown, Button, Modal, message, Tabs } from 'antd'
-import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { is } from 'immutable'
 import {
@@ -15,7 +14,7 @@ const { TabPane } = Tabs
 import { deleteTabFromList, updateTabChecked } from '../actions/tabHeader'
 
 @connect(
-  (state, props) => ({ tabList: state.tabListResult, color: state.changeColorStyle })
+  (state, props) => ({ tabList: state.tabListResult, color: state.changeColorStyle }),
 )
 @withRouter
 export default class Content extends Component {
@@ -32,14 +31,14 @@ export default class Content extends Component {
     this.props.history.push(activeKey)
   }
   onEdit = (targetKey, action) => {
-    this[action](targetKey);
+    this[action](targetKey)
   }
   remove = (targetKey) => {
     const { actions, tabList } = this.props;
     let delIndex
     let activeKey
 
-    console.log(targetKey, tabList.activeKey);
+    console.log(actions, targetKey, tabList.activeKey);
 
     if (targetKey === tabList.activeKey) {
       tabList.list.map((tab, index) => {

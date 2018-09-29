@@ -12,8 +12,21 @@ const changeColorStyle = handleActions({
     console.log(data, state, 333);
     const color = colorList[Math.floor(Math.random() * 3)]
     return { color, loading: false }
-  }
+  },
+  'updateTableList' (state, action) {
+    const data = action.payload;
+    console.log(data, state, 6633);
+    return { ...state, loading: false, tableList: data, }
+  },
+  'searchList' (state, action) {
+    const data = action.payload;
+    console.log(data, state, 6633);
+    return { ...state, loading: false, tableList: data, }
+  },
+
 }, initialState)
+
+
 
 
 //export { changeColorStyle as default }

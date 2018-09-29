@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Menu, Dropdown, Button, Modal, message } from 'antd'
-import { changeColor } from '../actions/addressBook'
+import { changeColor, updateTableList, searchList } from '../actions/addressBook'
 import { connect } from 'react-redux'
 import axios from 'axios';
 import './addressBook.less';
@@ -10,13 +10,14 @@ import { Table, Divider, Tag } from 'antd';
 
 
 @connect(
-  (state, props) => ({ color: state.changeColorStyle })
+  (state, props) => ({ addressBook: state.changeColorStyle })
 )
 export default class AddressBook extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      loading: false
+      loading: false,
+
     }
   }
 
@@ -24,6 +25,7 @@ export default class AddressBook extends Component {
     console.log('33');
     axios.get('/data').then((res) => {
       console.log(res, 99)
+      this.props.dispatch(updateTableList(res.data.content.data))
     })
   }
 
@@ -31,6 +33,13 @@ export default class AddressBook extends Component {
     this.props.dispatch(changeColor({
       color: 'red'
     }))
+  }
+
+  search = () => {
+    console.log(this.inputref.value);
+    axios.get('/seachData').then((res) => {
+      this.props.dispatch(searchList(res.data.content.data))
+    })
   }
 
   render () {
@@ -90,13 +99,24 @@ export default class AddressBook extends Component {
       tags: ['cool', 'teacher'],
     }];
 
+    let ndata = [];
+    if (this.props.addressBook.tableList) {
+      this.props.addressBook.tableList.list.forEach((item) => {
+        item.key = item.id;
+      })
+      ndata = this.props.addressBook.tableList.list;
+    }
+
     console.log(this.props, 55);
     return (
       <div className="pages-content">
         <div className="boxcon">
           <button onClick={this.changeColor}>更换皮肤颜色</button>
+          <div className="search">
+            <input type="text" ref={(input) => { this.inputref = input }} /> <button onClick={this.search}>搜索</button>
+          </div>
         </div>
-        <Table columns={columns} dataSource={data} />
+        <Table columns={columns} dataSource={ndata} />
       </div>
     )
   }
